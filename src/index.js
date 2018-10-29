@@ -16,7 +16,8 @@ class LOLDataGrabber {
       data[heroIdList[i]] = analyzer.analyzeHeroPage(heroPage);
       heroSkillsList.push(data);
     }
-    heroSkillsList.forEach(async (value) => {
+    // heroSkillsList.forEach(async (value) => {
+    for (let value of heroSkillsList) {
       let heroModel = {};
       let skillList = [];
       for (let key in value) {
@@ -24,16 +25,15 @@ class LOLDataGrabber {
         heroModel.hid = key;
         skillList = value[key].skills;
       }
-      // console.log(heroModel);
       await model.addHero(heroModel);
-      skillList.forEach(async (ele) => {
+      //skillList.forEach(async (ele) => {
+      for (let ele of skillList) {
         let heroSkillModel = ele;
-        heroSkillModel.hid = heroModel.hid;
-        // console.log(heroSkillModel);
+        heroSkillModel.hid = heroModel.hid;;
         await model.addHeroSkill(heroSkillModel);
-      });
-    });
-    setTimeout(async () => await model.endConnection(), 1000);
+      }
+    }
+    await model.endConnection();
   }
 }
 
