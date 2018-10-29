@@ -16,7 +16,6 @@ class LOLDataGrabber {
       data[heroIdList[i]] = analyzer.analyzeHeroPage(heroPage);
       heroSkillsList.push(data);
     }
-    // heroSkillsList.forEach(async (value) => {
     for (let value of heroSkillsList) {
       let heroModel = {};
       let skillList = [];
@@ -26,7 +25,6 @@ class LOLDataGrabber {
         skillList = value[key].skills;
       }
       await model.addHero(heroModel);
-      //skillList.forEach(async (ele) => {
       for (let ele of skillList) {
         let heroSkillModel = ele;
         heroSkillModel.hid = heroModel.hid;;
