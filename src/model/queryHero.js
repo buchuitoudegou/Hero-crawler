@@ -2,15 +2,15 @@ import db from './index';
 
 class Model {
   constructor() {}
-  async addHero({ hid, attack, defense, magic, difficulty }) {
+  async addHero({ hid, attack, defense, magic, difficulty, tags }) {
     const sql = `
   use hero;
   INSERT INTO 
-    heros(hid, attack, defense, magic, difficulty)
+    heros(hid, attack, defense, magic, difficulty, tags)
   VALUES
-    (?, ?, ?, ?, ?)
+    (?, ?, ?, ?, ?, ?)
   ;`;
-    const values = [hid, attack, defense, magic, difficulty];
+    const values = [hid, attack, defense, magic, difficulty, tags];
     return new Promise((resolve, reject) => {
       db.query(sql, values, (error) => {
         if (error) {

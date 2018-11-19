@@ -25,7 +25,8 @@ exports.analyzeHeroPage = function(heroBuffer) {
     });
     return {
       skills: skills,
-      info: LOLherojs.champion[key].data.info
+      info: LOLherojs.champion[key].data.info,
+      tags: LOLherojs.champion[key].data.tags
     }
   }
 }
