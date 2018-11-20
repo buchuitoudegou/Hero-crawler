@@ -23,6 +23,8 @@ class LOLDataGrabber {
         heroModel = value[key].info;
         heroModel.hid = key;
         heroModel.tags = value[key].tags.join(' ');
+        heroModel.cName = value[key].cName;
+        heroModel.title = value[key].title;
         skillList = value[key].skills;
       }
       await model.addHero(heroModel);

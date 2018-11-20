@@ -26,7 +26,9 @@ exports.analyzeHeroPage = function(heroBuffer) {
     return {
       skills: skills,
       info: LOLherojs.champion[key].data.info,
-      tags: LOLherojs.champion[key].data.tags
+      tags: LOLherojs.champion[key].data.tags,
+      cName: LOLherojs.champion[key].data.name,
+      title: LOLherojs.champion[key].data.title
     }
   }
 }
